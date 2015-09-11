@@ -1,11 +1,11 @@
-<?php namespace Newway\Imagene\Schemes;
+<?php namespace Newway\Uploader\Schemes;
 
 use Illuminate\Support\Facades\File;
 
 
 /**
  * Class AbstractScheme
- * @package Newway\Imagene\Schemes
+ * @package Newway\Uploader\Schemes
  */
 abstract class AbstractScheme
 {

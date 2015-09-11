@@ -1,13 +1,13 @@
-<?php namespace Newway\Imagene;
+<?php namespace Newway\Uploader;
 
-use Newway\Imagene\Exceptions\ImageneException;
+use Newway\Uploader\Exceptions\UploaderException;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 
 /**
  * Class Uploader
- * @package Newway\Imagene
+ * @package Newway\Uploader
  */
 class Uploader
 {
@@ -56,14 +56,14 @@ class Uploader
      *
      * @return Uploader
      *
-     * @throws ImageneException
+     * @throws UploaderException
      */
     public function init(UploadedFile $file)
     {
 
         // check if file correct
         if (!$file->isValid()){
-            throw new ImageneException($file->getErrorMessage());
+            throw new UploaderException($file->getErrorMessage());
         }
 
         $this->file = $file;
@@ -79,13 +79,13 @@ class Uploader
      *
      * @return Uploader
      *
-     * @throws ImageneException
+     * @throws UploaderException
      */
     public function __call($method, $arguments)
     {
 
         if (count($arguments) === 0){
-            throw new ImageneException('An argument required to execute ' . $method . ' method');
+            throw new UploaderException('An argument required to execute ' . $method . ' method');
         }
 
         switch ($method){
@@ -99,7 +99,7 @@ class Uploader
                 break;
 
             default:
-                throw new ImageneException('Method ' . $method . ' not allowed');
+                throw new UploaderException('Method ' . $method . ' not allowed');
         }
 
 
@@ -109,7 +109,7 @@ class Uploader
 
     /**
      * @return string
-     * @throws ImageneException
+     * @throws UploaderException
      */
     public function upload()
     {
@@ -133,10 +133,10 @@ class Uploader
             }
 
         } catch (FileException $e){
-            throw new ImageneException($e->getMessage());
+            throw new UploaderException($e->getMessage());
         }
 
-        throw new ImageneException('Internal error');
+        throw new UploaderException('Internal error');
 
     }
 

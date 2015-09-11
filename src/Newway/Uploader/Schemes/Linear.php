@@ -1,8 +1,8 @@
-<?php namespace Newway\Imagene\Schemes;
+<?php namespace Newway\Uploader\Schemes;
 
 /**
  * Class Linear
- * @package Newway\Imagene\Schemes
+ * @package Newway\Uploader\Schemes
  */
 class Linear extends AbstractScheme
 {

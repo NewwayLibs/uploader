@@ -1,8 +1,8 @@
-<?php namespace Newway\Imagene\Schemes;
+<?php namespace Newway\Uploader\Schemes;
 
 /**
  * Class Hashed
- * @package Newway\Imagene\Schemes
+ * @package Newway\Uploader\Schemes
  */
 class Hashed extends  AbstractScheme
 {

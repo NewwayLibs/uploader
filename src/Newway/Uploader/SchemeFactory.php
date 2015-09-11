@@ -1,13 +1,13 @@
-<?php namespace Newway\Imagene;
+<?php namespace Newway\Uploader;
 
-use Newway\Imagene\Exceptions\ImageneException;
-use Newway\Imagene\Schemes\Hashed;
-use Newway\Imagene\Schemes\Linear;
+use Newway\Uploader\Exceptions\UploaderException;
+use Newway\Uploader\Schemes\Hashed;
+use Newway\Uploader\Schemes\Linear;
 
 
 /**
  * Class SchemeFactory
- * @package Newway\Imagene
+ * @package Newway\Uploader
  */
 
 class SchemeFactory
@@ -20,7 +20,7 @@ class SchemeFactory
      * @param $hash_levels
      *
      * @return Linear
-     * @throws ImageneException
+     * @throws UploaderException
      */
     public static function make($scheme, $path, $filename, $hash_levels)
     {
@@ -34,7 +34,7 @@ class SchemeFactory
                 break;
             default:
                 // there is no such scheme
-                throw new ImageneException('Scheme ' . $scheme . ' not allowed');
+                throw new UploaderException('Scheme ' . $scheme . ' not allowed');
         }
 
 
