@@ -1,10 +1,12 @@
-<?php namespace Newway\Uploader;
+<?php namespace Newway\Uploader\Facades;
+
+use Illuminate\Support\Facades\Facade;
 
 /**
  * Class Uploader
- * @package Newway\Uploader
+ * @package Newway\Uploader\Facades
  */
-class Facade extends \Illuminate\Support\Facades\Facade
+class Uploader extends Facade
 {
     /**
      * {@inheritDoc}
