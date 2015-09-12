@@ -18,6 +18,7 @@ abstract class AbstractScheme
      * @var null
      */
     protected $extension;
+    protected $basename;
 
     /**
      * SchemeConstructor
@@ -31,6 +32,8 @@ abstract class AbstractScheme
         $this->basePath = rtrim($basePath, '/\\');
         $this->filename = $filename;
         $this->extension = pathinfo($filename, PATHINFO_EXTENSION);
+
+        $this->basename = md5(microtime(true) . $this->filename);
 
         $this->_touchDirectory($basePath);
 
@@ -71,7 +74,7 @@ abstract class AbstractScheme
      */
     public function getBasename()
     {
-        return md5(microtime(true) . $this->filename);
+        return $this->basename;
     }
 
     /**
@@ -82,7 +85,7 @@ abstract class AbstractScheme
     public function getFilename()
     {
 
-        return  $this->getBasename($this->filename) . '.' . strtolower($this->extension);
+        return  $this->getBasename() . '.' . strtolower($this->extension);
     }
 
     /**
